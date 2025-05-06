@@ -54,3 +54,9 @@ vim .env
 ````bash
 docker-compose up -d --build
 ````
+
+### Effectuez les migrations
+
+````bash
+docker exec laravel_app php artisan migrate
+````
