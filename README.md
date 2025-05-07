@@ -1,6 +1,6 @@
 <p align="center"><img src="public/images/logo.png" height="128"></p>
 
-DeviceLedger est une application web complète pour inventorier, organiser et gérer des appareils. Cette plateforme offre des fonctionnalités avancées pour simplifier la gestion des équipements. Ce projet a été réalisé dans un cadre personnel.
+DeviceSphere est une application web complète pour inventorier, organiser et gérer des appareils. Cette plateforme offre des fonctionnalités avancées pour simplifier la gestion des équipements. Ce projet a été réalisé dans un cadre personnel.
 
 ## Fonctionnalités principales
 
