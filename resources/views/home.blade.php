@@ -5,13 +5,56 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2 class="font-semibold text-xl">{{ __("Mes appareils") }}</h2>
+    @if ($user->role === 'admin')
+        <div class="py-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h2 class="font-semibold text-xl">{{ __("Appareils") }}</h2>
+                        @foreach ($randomDevices as $device)
+                            <li>{{ $device->name }}</li>
+                        @endforeach
+                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                            Tous les appareils
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="py-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h2 class="font-semibold text-xl">{{ __("Défaillances") }}</h2>
+                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                            Toutes les défaillances
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h2 class="font-semibold text-xl">{{ __("Prêts") }}</h2>
+                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                            Tous les prêts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="py-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h2 class="font-semibold text-xl">{{ __("Mes prêts") }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 </x-app-layout>
