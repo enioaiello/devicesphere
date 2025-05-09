@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    $user = Auth::user();
-    return view('home', compact('user'));
-})->middleware(['auth', 'verified'])->name('home');
+Route::get('/', [HomeController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('home');
+
+Route::get('/admin', [HomeController::class, 'displayAdmin'])
+    ->middleware(['auth', 'verified'])
+    ->name('admin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
