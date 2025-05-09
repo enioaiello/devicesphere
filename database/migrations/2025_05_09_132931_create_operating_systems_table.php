@@ -13,6 +13,19 @@ return new class extends Migration {
             $table->string('build');
             $table->string('architecture');
         });
+
+        DB::table('operating_systems')->insert([
+            ['brand' => 'Windows', 'version' => '11 24h2', 'build' => 'KB5043178', 'architecture' => 'x86_64'],
+            ['brand' => 'Windows', 'version' => '10 22h2', 'build' => 'KB5028254', 'architecture' => 'x86_64'],
+            ['brand' => 'Windows', 'version' => '10 21h2', 'build' => 'KB5018483', 'architecture' => 'x86_64'],
+            ['brand' => 'Windows', 'version' => '10 20h2', 'build' => 'KB5018483', 'architecture' => 'x86_64'],
+            ['brand' => 'Windows', 'version' => '10 1909', 'build' => 'KB5018483', 'architecture' => 'x86_64'],
+            ['brand' => 'Windows', 'version' => '10 1903', 'build' => '18362.1256', 'architecture' => 'x86_64'],
+            ['brand' => 'macOS', 'version' => '15.4.1', 'build' => '24E263', 'architecture' => 'x86_64'],
+            ['brand' => 'macOS', 'version' => '14.6', 'build' => '24E263', 'architecture' => 'x86_64'],
+            ['brand' => 'macOS', 'version' => '13.6', 'build' => '22G90', 'architecture' => 'x86_64'],
+            ['brand' => 'macOS', 'version' => '12.6.1', 'build' => '21G217', 'architecture' => 'x86_64'],
+        ]);
     }
 
     public function down(): void {

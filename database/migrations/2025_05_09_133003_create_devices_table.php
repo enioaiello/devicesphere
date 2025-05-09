@@ -9,10 +9,10 @@ return new class extends Migration {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('serial_number')->unique();
-            $table->string('internal_id')->unique();
             $table->string('name');
             $table->string('model');
             $table->string('brand');
+            $table->string('year');
             $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo']);
             $table->foreignId('operating_system_id')->nullable()->constrained('operating_systems')->nullOnDelete();
             $table->string('image_path');
