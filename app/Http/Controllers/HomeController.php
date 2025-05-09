@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
+use App\Models\Repair;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -24,7 +25,15 @@ class HomeController extends Controller
         // Récupérer l'utilisateur connecté
         $user = Auth::user();
 
+        // Récupérer tous les appareils
+        $device = Device::all();
+
+        // Récupérer le nombre d'appareils
+        $deviceCount = Device::get()->count();
+
+        // Récupérer le nombre de défaillances
+
         // Retourner les données à la vue
-        return view('admin', compact('user'));
+        return view('admin', compact('user', 'device', 'deviceCount'));
     }
 }
