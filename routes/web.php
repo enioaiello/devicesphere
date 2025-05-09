@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    $user = Auth::user();
+    return view('home', compact('user'));
 })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
