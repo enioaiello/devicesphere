@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('model');
             $table->string('brand');
             $table->string('year');
-            $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo']);
+            $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo', 'multimédia']);
             $table->foreignId('operating_system_id')->nullable()->constrained('operating_systems')->nullOnDelete();
             $table->string('image_path');
             $table->text('description');
