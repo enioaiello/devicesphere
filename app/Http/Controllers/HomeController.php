@@ -36,4 +36,31 @@ class HomeController extends Controller
         // Retourner les données à la vue
         return view('admin', compact('user', 'device', 'deviceCount'));
     }
+
+    public function displayDevices()
+    {
+        // Récupérer tous les appareils
+        $devices = Device::all();
+
+        // Retourner les données à la vue
+        return view('devices', compact('devices'));
+    }
+
+    public function displayRepairs()
+    {
+        // Récupérer tous les appareils
+        $repairs = Repair::all();
+
+        // Retourner les données à la vue
+        return view('repairs', compact('repairs'));
+    }
+
+    public function displayLoans()
+    {
+        // Récupérer tous les appareils
+        $loans = Loan::all();
+
+        // Retourner les données à la vue
+        return view('repairs', compact('loans'));
+    }
 }
