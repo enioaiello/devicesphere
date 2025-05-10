@@ -8,9 +8,21 @@ Route::get('/', [HomeController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('home');
 
-Route::get('/admin', [HomeController::class, 'displayAdmin'])
-    ->middleware(['auth', 'verified'])
+Route::get('/administration', [HomeController::class, 'displayAdmin'])
+    ->middleware(['auth', 'verified', 'admin'])
     ->name('admin');
+
+Route::get('/appareils', [HomeController::class, 'displayDevices'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('devices');
+
+Route::get('/réparations', [HomeController::class, 'displayRepairs'])
+    ->middleware(['auth', 'verified'])
+    ->name('repairs');
+
+Route::get('/prêts', [HomeController::class, 'displayLoans'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('loans');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
