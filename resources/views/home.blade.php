@@ -14,7 +14,7 @@
                         @foreach ($randomDevices as $device)
                             <li>{{ $device->name }}</li>
                         @endforeach
-                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                        <a href="{{ route("devices") }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                             Tous les appareils
                         </a>
                     </div>
@@ -25,9 +25,9 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h2 class="font-semibold text-xl">{{ __("Défaillances") }}</h2>
-                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                            Toutes les défaillances
+                        <h2 class="font-semibold text-xl">{{ __("Réparations") }}</h2>
+                        <a href="{{ route("repairs") }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                            Toutes les réparations
                         </a>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <h2 class="font-semibold text-xl">{{ __("Prêts") }}</h2>
-                        <a href="#" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                        <a href="{{ route("loans") }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                             Tous les prêts
                         </a>
                     </div>
