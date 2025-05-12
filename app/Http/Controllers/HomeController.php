@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Models\Repair;
+use App\Models\Loan;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -61,6 +62,6 @@ class HomeController extends Controller
         $loans = Loan::all();
 
         // Retourner les données à la vue
-        return view('repairs', compact('loans'));
+        return view('loans', compact('loans'));
     }
 }
