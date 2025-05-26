@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -23,6 +24,14 @@ Route::get('/réparations', [HomeController::class, 'displayRepairs'])
 Route::get('/prêts', [HomeController::class, 'displayLoans'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('loans');
+
+Route::get('/appareils/gérer', [DeviceController::class, 'index'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('devices.manage');
+
+Route::get('/appareils/ajouter', [DeviceController::class, 'addForm'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('devices.add');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

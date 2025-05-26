@@ -27,15 +27,16 @@ class HomeController extends Controller
         $user = Auth::user();
 
         // Récupérer tous les appareils
-        $device = Device::all();
+        $devices = Device::all();
 
         // Récupérer le nombre d'appareils
-        $deviceCount = Device::get()->count();
+        $devicesCount = Device::get()->count();
 
         // Récupérer le nombre de défaillances
+        $repair = Repair::get()->count();
 
         // Retourner les données à la vue
-        return view('admin', compact('user', 'device', 'deviceCount'));
+        return view('admin', compact('user', 'devices', 'devicesCount'));
     }
 
     public function displayDevices()
