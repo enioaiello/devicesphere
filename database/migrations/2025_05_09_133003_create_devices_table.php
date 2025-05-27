@@ -11,8 +11,6 @@ return new class extends Migration {
             $table->string('serial_number')->unique();
             $table->foreignId('user')->nullable()->constrained('users')->nullOnDelete();
             $table->string('name');
-            $table->foreignId('model_id')->constrained('models')->nullOnDelete();
-            $table->foreignId('brand_id')->constrained('brands')->nullOnDelete();
             $table->string('year');
             $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo', 'multimédia']);
             $table->foreignId('operating_system_id')->nullable()->constrained('operating_systems')->nullOnDelete();
