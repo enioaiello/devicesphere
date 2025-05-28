@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->enum('category', ['miscellaneous', 'operating_system', 'device', 'processor', 'graphics_card', 'storage', 'memory', 'network', 'domotics', 'health', 'audio', 'server'])->default('miscellaneous');;
         });
     }
 

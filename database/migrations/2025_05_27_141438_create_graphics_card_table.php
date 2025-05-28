@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('graphics_card', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('manufacturer');
             $table->integer('memory_size');
             $table->enum('memory_type', ['GDDR6', 'GDDR5', 'GDDR4', 'GDDR3', 'HBM2', 'HBM'])->default('GDDR6');
             $table->integer('core_clock')->nullable(); // in MHz

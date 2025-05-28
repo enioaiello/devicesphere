@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('user')->nullable()->constrained('users')->nullOnDelete();
             $table->string('name');
             $table->string('year');
-            $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo', 'multimédia']);
+            $table->enum('category', ['téléphonie', 'ordinateur', 'domotique', 'jeux vidéo', 'multimédia', 'serveur']);
             $table->string('image_path')->nullable();
             $table->text('description')->nullable();
             $table->date('purchase_date')->nullable();

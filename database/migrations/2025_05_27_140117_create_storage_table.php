@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('storage', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('manufacturer');
             $table->enum('type', ['HDD', 'SSD', 'NVMe', 'Hybrid'])->default('HDD');
             $table->integer('capacity');
             $table->integer('read_speed')->nullable();

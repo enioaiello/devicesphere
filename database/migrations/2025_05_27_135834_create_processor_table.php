@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('processor', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('manufacturer');
             $table->string('architecture');
             $table->integer('cores')->nullable();
             $table->integer('threads')->nullable();
