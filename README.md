@@ -1,5 +1,7 @@
 <p align="center"><img src="public/images/logo.png" height="128"></p>
 
+## À propos de DeviceSphere
+
 DeviceSphere est une application web complète pour inventorier, organiser et gérer des appareils. Cette plateforme offre des fonctionnalités avancées pour simplifier la gestion des équipements. Ce projet a été réalisé dans un cadre personnel.
 
 ## Fonctionnalités principales
@@ -60,3 +62,7 @@ docker-compose up -d --build
 ````bash
 docker exec laravel_app php artisan migrate
 ````
+
+## Licence
+
+Ce projet est distribué sous la licence MIT. Pour consulter cette licence, veuillez consulter le fichier [LICENSE](LICENSE).
