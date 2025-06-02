@@ -2,7 +2,7 @@
 
 ## À propos de DeviceSphere
 
-DeviceSphere est une application web complète pour inventorier, organiser et gérer des appareils. Cette plateforme offre des fonctionnalités avancées pour simplifier la gestion des équipements. Ce projet a été réalisé dans un cadre personnel.
+**DeviceSphere** est une application web complète pour inventorier, organiser et gérer des appareils. Cette plateforme offre des fonctionnalités avancées pour simplifier la gestion des équipements. Ce projet a été réalisé dans un cadre personnel.
 
 ## Fonctionnalités principales
 
