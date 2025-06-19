@@ -10,7 +10,7 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 Route::get('/administration', [HomeController::class, 'displayAdmin'])
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified'])
     ->name('admin');
 
 Route::get('/appareils', [HomeController::class, 'displayDevices'])

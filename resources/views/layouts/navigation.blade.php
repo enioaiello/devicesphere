@@ -20,12 +20,12 @@
                             {{ __('Appareils') }}
                         </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('repairs')" :active="request()->routeIs('repairs')">
-                        {{ __('Réparations') }}
+                    <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
+                    {{ __('Prêts') }}
                     </x-nav-link>
                     @if (Auth::user()->role === 'admin')
-                        <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
-                            {{ __('Prêts') }}
+                        <x-nav-link :href="route('repairs')" :active="request()->routeIs('repairs')">
+                            {{ __('Réparations') }}
                         </x-nav-link>
                     @endif
                 </div>

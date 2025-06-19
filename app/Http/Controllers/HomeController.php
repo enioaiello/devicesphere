@@ -35,8 +35,11 @@ class HomeController extends Controller
         // Récupérer le nombre de défaillances
         $repair = Repair::get()->count();
 
-        // Retourner les données à la vue
-        return view('admin', compact('user', 'devices', 'devicesCount'));
+        if ($user->role == "admin") {
+            return view('admin', compact('user', 'devices', 'devicesCount'));
+        } else {
+            return redirect('/');
+        }
     }
 
     public function displayDevices()

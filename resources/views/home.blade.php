@@ -14,38 +14,46 @@
                         {{ __("Voici quelques-uns des appareils disponibles.") }}
                     </p>
                     <div class="mb-3">
-                        @foreach ($randomDevices as $device)
-                            <div class="p-4 sm:p-8 bg-gray-100 dark:bg-gray-700 shadow sm:rounded-lg border border-gray-200 dark:border-gray-600">
+                        @if(isset($randomDevices) && $randomDevices->isNotEmpty())
+                            @foreach ($randomDevices as $device)
+                                <div class="p-4 sm:p-8 bg-gray-100 dark:bg-gray-700 shadow sm:rounded-lg border border-gray-200 dark:border-gray-600">
+                                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 mb-2">
+                                        {{ $device->name }} {{ $device->model ? ' - ' . $device->model : '' }}
+                                    </h3>
+                                    <ul class="mb-2 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                                        <li>
+                                            <span class="font-semibold">Numéro de série :</span>
+                                            <span class="ml-1">{{ $device->serial_number }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Utilisateur :</span>
+                                            <span class="ml-1">{{ $device->user->name ?? 'Aucun prêt' }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Marque :</span>
+                                            <span class="ml-1">{{ $device->brand->name }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Catégorie :</span>
+                                            <span class="ml-1">{{ ucfirst($device->category) }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Système d'exploitation :</span>
+                                            <span class="ml-1">{{ $device->operating_system->brand}} {{ $device->operating_system->version }} {{ $device->operating_system->build }}</span>
+                                        </li>
+                                    </ul>
+                                    <a href="{{ route('devices.show', $device->id) }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                                        {{ __("Plus de détails") }}
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="mt-4 p-4 sm:p-8 bg-gray-100 dark:bg-gray-700 shadow sm:rounded-lg border border-gray-200 dark:border-gray-600">
                                 <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 mb-2">
-                                    {{ $device->name }} {{ $device->model ? ' - ' . $device->model : '' }}
+                                    Aucun appareil pour le moment.
                                 </h3>
-                                <ul class="mb-2 text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                                    <li>
-                                        <span class="font-semibold">Numéro de série :</span>
-                                        <span class="ml-1">{{ $device->serial_number }}</span>
-                                    </li>
-                                    <li>
-                                        <span class="font-semibold">Utilisateur :</span>
-                                        <span class="ml-1">{{ $device->user->name ?? 'Aucun prêt' }}</span>
-                                    </li>
-                                    <li>
-                                        <span class="font-semibold">Marque :</span>
-                                        <span class="ml-1">{{ $device->brand->name }}</span>
-                                    </li>
-                                    <li>
-                                        <span class="font-semibold">Catégorie :</span>
-                                        <span class="ml-1">{{ ucfirst($device->category) }}</span>
-                                    </li>
-                                    <li>
-                                        <span class="font-semibold">Système d'exploitation :</span>
-                                        <span class="ml-1">{{ $device->operating_system->brand}} {{ $device->operating_system->version }} {{ $device->operating_system->build }}</span>
-                                    </li>
-                                </ul>
-                                <a href="{{ route('devices.show', $device->id) }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                                    {{ __("Plus de détails") }}
-                                </a>
                             </div>
-                        @endforeach
+                        @endif
                     </div>
                     <a href="{{ route("devices") }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                         Tous les appareils
@@ -72,6 +80,51 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg border border-gray-200 dark:border-gray-700">
                     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200">{{ __("Mes prêts") }}</h2>
+                    <div class="mb-3">
+                        @if(isset($randomDevices) && $randomDevices->isNotEmpty())
+                            @foreach ($randomDevices as $device)
+                                <div class="p-4 sm:p-8 bg-gray-100 dark:bg-gray-700 shadow sm:rounded-lg border border-gray-200 dark:border-gray-600">
+                                    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 mb-2">
+                                        {{ $device->name }} {{ $device->model ? ' - ' . $device->model : '' }}
+                                    </h3>
+                                    <ul class="mb-2 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                                        <li>
+                                            <span class="font-semibold">Numéro de série :</span>
+                                            <span class="ml-1">{{ $device->serial_number }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Utilisateur :</span>
+                                            <span class="ml-1">{{ $device->user->name ?? 'Aucun prêt' }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Marque :</span>
+                                            <span class="ml-1">{{ $device->brand->name }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Catégorie :</span>
+                                            <span class="ml-1">{{ ucfirst($device->category) }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold">Système d'exploitation :</span>
+                                            <span class="ml-1">{{ $device->operating_system->brand}} {{ $device->operating_system->version }} {{ $device->operating_system->build }}</span>
+                                        </li>
+                                    </ul>
+                                    <a href="{{ route('devices.show', $device->id) }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                                        {{ __("Plus de détails") }}
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="mt-4 p-4 sm:p-8 bg-gray-100 dark:bg-gray-700 shadow sm:rounded-lg border border-gray-200 dark:border-gray-600">
+                                <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 mb-2">
+                                    Aucun prêt pour le moment.
+                                </h3>
+                            </div>
+                        @endif
+                    </div>
+                    <a href="{{ route("loans") }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                        Tous les prêts
+                    </a>
                 </div>
             </div>
         </div>
