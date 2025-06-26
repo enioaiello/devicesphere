@@ -14,7 +14,7 @@ Route::get('/administration', [HomeController::class, 'displayAdmin'])
     ->name('admin');
 
 Route::get('/appareils', [HomeController::class, 'displayDevices'])
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified'])
     ->name('devices');
 
 Route::get('/réparations', [HomeController::class, 'displayRepairs'])
@@ -22,15 +22,15 @@ Route::get('/réparations', [HomeController::class, 'displayRepairs'])
     ->name('repairs');
 
 Route::get('/prêts', [HomeController::class, 'displayLoans'])
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified'])
     ->name('loans');
 
 Route::get('/appareils/gérer', [DeviceController::class, 'index'])
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified'])
     ->name('devices.manage');
 
 Route::get('/appareils/ajouter', [DeviceController::class, 'addForm'])
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified'])
     ->name('devices.add');
 
 Route::middleware('auth')->group(function () {
