@@ -11,14 +11,20 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Récupérer 5 éléments aléatoires
+        // Récupérer 5 appareils aléatoires
         $randomDevices = Device::inRandomOrder()->limit(5)->get();
+
+        // Récupérer 5 dernières réparations enregistrées
+        $lastRepairs = Repair::limit(5)->get();
+
+        // Récupérer 5 derniers prêts qui prendront fin bientôt
+        // $soonExpireLoans = Loan::
 
         // Récupérer l'utilisateur connecté
         $user = Auth::user();
 
         // Retourner les données à la vue
-        return view('home', compact('user', 'randomDevices'));
+        return view('home', compact('user', 'randomDevices', 'lastRepairs'));
     }
 
     public function displayAdmin()
@@ -44,20 +50,34 @@ class HomeController extends Controller
 
     public function displayDevices()
     {
+        // Récupérer l'utilisateur connecté
+        $user = Auth::user();
+
         // Récupérer tous les appareils
         $devices = Device::all();
 
         // Retourner les données à la vue
-        return view('devices', compact('devices'));
+        if ($user->role == "admin") {
+            return view('devices', compact('devices'));
+        } else {
+            return redirect('/');
+        }
     }
 
     public function displayRepairs()
     {
+        // Récupérer l'utilisateur connecté
+        $user = Auth::user();
+
         // Récupérer tous les appareils
         $repairs = Repair::all();
 
         // Retourner les données à la vue
-        return view('repairs', compact('repairs'));
+        if ($user->role == "admin") {
+            return view('repairs', compact('repairs'));
+        } else {
+            return redirect('/');
+        }
     }
 
     public function displayLoans()
