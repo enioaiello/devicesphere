@@ -132,7 +132,10 @@ return new class extends Migration
             ['name' => 'XFX', 'category' => 'graphics_card'],
             ['name' => 'Biostar', 'category' => 'device'],
             ['name' => 'Jetway', 'category' => 'device'],
-            ['name' => 'Foxconn', 'category' => 'miscellaneous']
+            ['name' => 'Foxconn', 'category' => 'miscellaneous'],
+            ['name' => 'ARM', 'category' => 'processor'],
+            ['name' => 'IBM', 'category' => 'processor'],
+            ['name' => 'Freescale', 'category' => 'processor'],
         ]);
     }
 
