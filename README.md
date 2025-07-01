@@ -41,6 +41,7 @@ git clone https://github.com/enioaiello/devicesphere.git
 ````bash
 composer install
 npm install
+npm run build
 ````
 
 ### Copiez le fichier d'environnement
