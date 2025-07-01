@@ -85,10 +85,27 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <!-- Navigation Links -->
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Accueil') }}
             </x-responsive-nav-link>
+
+            @if (Auth::user()->role === 'admin')
+                <x-responsive-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
+                    {{ __('Appareils') }}
+                </x-responsive-nav-link>
+            @endif
+
+            <x-responsive-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
+                {{ __('Prêts') }}
+            </x-responsive-nav-link>
+
+            @if (Auth::user()->role === 'admin')
+                <x-responsive-nav-link :href="route('repairs')" :active="request()->routeIs('repairs')">
+                    {{ __('Réparations') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -114,8 +131,8 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                                           onclick="event.preventDefault();
+                                    this.closest('form').submit();">
                         {{ __('Se déconnecter') }}
                     </x-responsive-nav-link>
                 </form>
