@@ -130,12 +130,14 @@ return new class extends Migration
             ['name' => 'VisionTek', 'category' => 'graphics_card'],
             ['name' => 'Matrox', 'category' => 'graphics_card'],
             ['name' => 'XFX', 'category' => 'graphics_card'],
+            ['name' => 'PowerVR', 'category' => 'graphics_card'],
             ['name' => 'Biostar', 'category' => 'device'],
             ['name' => 'Jetway', 'category' => 'device'],
             ['name' => 'Foxconn', 'category' => 'miscellaneous'],
             ['name' => 'ARM', 'category' => 'processor'],
             ['name' => 'IBM', 'category' => 'processor'],
             ['name' => 'Freescale', 'category' => 'processor'],
+            ['name' => 'ATI', 'category' => 'processor'],
         ]);
     }
 
