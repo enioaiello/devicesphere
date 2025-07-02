@@ -41,6 +41,19 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h2 class="font-semibold text-xl">{{ __("Gérer les composants") }}</h2>
+                        <p>{{ __("Ajoutez, modifiez ou supprimez les composants provenant d'appareil.") }}</p>
+                        <a href="{{ route('devices.manage') }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                            {{ __("Commencer") }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
                         <h2 class="font-semibold text-xl">{{ __("Gérer les réparations") }}</h2>
                         <p>{{ __("Ajoutez ou modifiez une réparation.") }}</p>
                         <a href="{{ route('devices.manage') }}" class="block text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
