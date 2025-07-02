@@ -61,7 +61,7 @@ docker-compose up -d --build
 ### Effectuez les migrations
 
 ````bash
-docker exec laravel_app php artisan migrate
+docker exec laravel_app php artisan migrate --seed
 ````
 
 ## Licence
