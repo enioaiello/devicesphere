@@ -57,11 +57,11 @@ class HomeController extends Controller
         $devices = Device::all();
 
         // Retourner les données à la vue
-        if ($user->role == "admin") {
-            return view('devices', compact('devices'));
-        } else {
-            return redirect('/');
-        }
+//        if ($user->role == "admin") {
+        return view('devices', compact('user'), compact('devices'));
+//        } else {
+//            return redirect('/');
+//        }
     }
 
     public function displayRepairs()
@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         // Retourner les données à la vue
         if ($user->role == "admin") {
-            return view('repairs', compact('repairs'));
+            return view('repairs', compact('user'), compact('repairs'));
         } else {
             return redirect('/');
         }
@@ -82,10 +82,17 @@ class HomeController extends Controller
 
     public function displayLoans()
     {
+        // Récupérer les utilisateurs
+        $user = Auth::user();
+
         // Récupérer tous les appareils
         $loans = Loan::all();
 
         // Retourner les données à la vue
-        return view('loans', compact('loans'));
+        if ($user->role === 'admin') {
+            return view('loans', compact('user'), compact('loans'));
+        } else {
+            return redirect('/');
+        }
     }
 }
