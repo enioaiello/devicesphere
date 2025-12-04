@@ -13,23 +13,23 @@ Route::get('/administration', [HomeController::class, 'displayAdmin'])
     ->middleware(['auth', 'verified'])
     ->name('admin');
 
-Route::get('/appareils', [HomeController::class, 'displayDevices'])
+Route::get('/devices', [HomeController::class, 'displayDevices'])
     ->middleware(['auth', 'verified'])
     ->name('devices');
 
-Route::get('/réparations', [HomeController::class, 'displayRepairs'])
+Route::get('/repairs', [HomeController::class, 'displayRepairs'])
     ->middleware(['auth', 'verified'])
     ->name('repairs');
 
-Route::get('/prêts', [HomeController::class, 'displayLoans'])
+Route::get('/loans', [HomeController::class, 'displayLoans'])
     ->middleware(['auth', 'verified'])
     ->name('loans');
 
-Route::get('/appareils/gérer', [DeviceController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+Route::get('/devices/manage', [DeviceController::class, 'index'])
+    ->middleware(['auth', 'verified', 'password.confirm'])
     ->name('devices.manage');
 
-Route::get('/appareils/ajouter', [DeviceController::class, 'addForm'])
+Route::get('/devices/add', [DeviceController::class, 'addForm'])
     ->middleware(['auth', 'verified'])
     ->name('devices.add');
 
