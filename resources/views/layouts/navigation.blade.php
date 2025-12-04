@@ -15,14 +15,14 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Accueil') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
+                        {{ __('Appareils') }}
+                    </x-nav-link>
                     @if (Auth::user()->role === 'admin')
-                        <x-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
-                            {{ __('Appareils') }}
+                        <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
+                            {{ __('Prêts') }}
                         </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
-                    {{ __('Prêts') }}
-                    </x-nav-link>
                     @if (Auth::user()->role === 'admin')
                         <x-nav-link :href="route('repairs')" :active="request()->routeIs('repairs')">
                             {{ __('Réparations') }}
@@ -91,15 +91,15 @@
                 {{ __('Accueil') }}
             </x-responsive-nav-link>
 
+            <x-responsive-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
+                {{ __('Appareils') }}
+            </x-responsive-nav-link>
+
             @if (Auth::user()->role === 'admin')
-                <x-responsive-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
-                    {{ __('Appareils') }}
+                <x-responsive-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
+                    {{ __('Prêts') }}
                 </x-responsive-nav-link>
             @endif
-
-            <x-responsive-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
-                {{ __('Prêts') }}
-            </x-responsive-nav-link>
 
             @if (Auth::user()->role === 'admin')
                 <x-responsive-nav-link :href="route('repairs')" :active="request()->routeIs('repairs')">
