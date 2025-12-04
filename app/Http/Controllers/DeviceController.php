@@ -13,8 +13,14 @@ class DeviceController extends Controller
         // Récupérer l'utilisateur connecté
         $user = Auth::user();
 
+        // Récupérer les appareils
+        $devices = Device::all();
+
+        // Récupérer le nombre d'appareils
+        $devicesCount = Device::get()->count();
+
         if ($user->role === 'admin') {
-            return view('/manage/device');
+            return view('/manage/device', compact('user', 'devices', 'devicesCount'));
         } else {
             return redirect('/');
         }
