@@ -33,6 +33,22 @@ Route::get('/devices/add', [DeviceController::class, 'addForm'])
     ->middleware(['auth', 'verified'])
     ->name('devices.add');
 
+Route::get('/devices/{device}', [DeviceController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('devices.show');
+
+Route::get('/devices/{device}/edit', [DeviceController::class, 'editForm'])
+    ->middleware(['auth', 'verified'])
+    ->name('devices.edit');
+
+Route::get('/devices/{device}/delete', [DeviceController::class, 'deleteForm'])
+    ->middleware(['auth', 'verified'])
+    ->name('devices.delete');
+
+Route::get('/devices/delete/all', [DeviceController::class, 'deleteAll'])
+    ->middleware(['auth', 'verified'])
+    ->name('devices.delete.all');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
